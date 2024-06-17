@@ -272,23 +272,30 @@ plot(combo_list[[1]])
 #Top 8 PA Counties for Enrollment
 plot(combo_list[[1]], "Enrollment", "PA", "top", 8)
 
-#Read in similar datasets using data processing function.
+#Read in similar datasets using data processing function. Print out each.
 pst_a <- wrap_all("https://www4.stat.ncsu.edu/~online/datasets/PST01a.csv", values = "Population")
+pst_a
 
 pst_b <- wrap_all("https://www4.stat.ncsu.edu/~online/datasets/PST01b.csv", values = "Population")
+pst_b
 
 pst_c <- wrap_all("https://www4.stat.ncsu.edu/~online/datasets/PST01c.csv", values = "Population")
+pst_c
 
 pst_d <- wrap_all("https://www4.stat.ncsu.edu/~online/datasets/PST01d.csv", values = "Population")
+pst_d
 
 
-#Run data combining function three times to put into one object.
+#Run data combining function three times to put into one object. Print out each.
 # A and B
 a_and_b <- combine_both(pst_a, pst_b)
+a_and_b
 # A, B, and C
 a_b_c<- combine_both(a_and_b, pst_c)
+a_b_c
 #All
 all_combo <- combine_both(a_b_c, pst_d)
+all_combo
 
 #Plot state data frame
 plot(all_combo[[2]], values = "Population")

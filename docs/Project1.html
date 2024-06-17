@@ -554,48 +554,280 @@ $`Non-County Data`
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-5.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in similar datasets using data processing function.</span></span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in similar datasets using data processing function. Print out each.</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pst_a <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01a.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>pst_b <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01b.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>pst_c <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01c.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>pst_d <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01d.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Run data combining function three times to put into one object.</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co"># A and B</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>a_and_b <span class="ot">&lt;-</span> <span class="fu">combine_both</span>(pst_a, pst_b)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, and C</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>a_b_c<span class="ot">&lt;-</span> <span class="fu">combine_both</span>(a_and_b, pst_c)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co">#All</span></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>all_combo <span class="ot">&lt;-</span> <span class="fu">combine_both</span>(a_b_c, pst_d)</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot state data frame</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">2</span>]], <span class="at">values =</span> <span class="st">"Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>pst_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 31,333 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      25508      1971 PST0151     AL   
+ 2 Autauga, AL 01001      27166      1972 PST0151     AL   
+ 3 Autauga, AL 01001      28463      1973 PST0151     AL   
+ 4 Autauga, AL 01001      29266      1974 PST0151     AL   
+ 5 Autauga, AL 01001      29718      1975 PST0151     AL   
+ 6 Autauga, AL 01001      29896      1976 PST0151     AL   
+ 7 Autauga, AL 01001      30462      1977 PST0151     AL   
+ 8 Autauga, AL 01001      30882      1978 PST0151     AL   
+ 9 Autauga, AL 01001      32055      1979 PST0151     AL   
+10 Autauga, AL 01001      31985      1981 PST0251     AL   
+# ℹ 31,323 more rows
+
+$`Non-County Data`
+# A tibble: 520 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  206827028      1971 PST0151     Error   
+ 2 UNITED STATES 00000  209283904      1972 PST0151     Error   
+ 3 UNITED STATES 00000  211357490      1973 PST0151     Error   
+ 4 UNITED STATES 00000  213341552      1974 PST0151     Error   
+ 5 UNITED STATES 00000  215465246      1975 PST0151     Error   
+ 6 UNITED STATES 00000  217562728      1976 PST0151     Error   
+ 7 UNITED STATES 00000  219759860      1977 PST0151     Error   
+ 8 UNITED STATES 00000  222095080      1978 PST0151     Error   
+ 9 UNITED STATES 00000  224567234      1979 PST0151     Error   
+10 UNITED STATES 00000  229466391      1981 PST0251     Error   
+# ℹ 510 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>pst_b <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01b.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>pst_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 31,381 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      32038      1982 PST0251     AL   
+ 2 Autauga, AL 01001      32057      1983 PST0251     AL   
+ 3 Autauga, AL 01001      32130      1984 PST0251     AL   
+ 4 Autauga, AL 01001      32248      1985 PST0251     AL   
+ 5 Autauga, AL 01001      32895      1986 PST0251     AL   
+ 6 Autauga, AL 01001      33266      1987 PST0251     AL   
+ 7 Autauga, AL 01001      33637      1988 PST0251     AL   
+ 8 Autauga, AL 01001      33996      1989 PST0251     AL   
+ 9 Autauga, AL 01001      34222      1990 PST0301     AL   
+10 Autauga, AL 01001      34353      1990 PST0351     AL   
+# ℹ 31,371 more rows
+
+$`Non-County Data`
+# A tibble: 520 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  231665106      1982 PST0251     Error   
+ 2 UNITED STATES 00000  233792697      1983 PST0251     Error   
+ 3 UNITED STATES 00000  235825544      1984 PST0251     Error   
+ 4 UNITED STATES 00000  237924311      1985 PST0251     Error   
+ 5 UNITED STATES 00000  240133472      1986 PST0251     Error   
+ 6 UNITED STATES 00000  242289738      1987 PST0251     Error   
+ 7 UNITED STATES 00000  244499776      1988 PST0251     Error   
+ 8 UNITED STATES 00000  246819839      1989 PST0251     Error   
+ 9 UNITED STATES 00000  248790925      1990 PST0301     Error   
+10 UNITED STATES 00000  249622814      1990 PST0351     Error   
+# ℹ 510 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pst_c <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01c.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pst_c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 31,395 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      35010      1991 PST0351     AL   
+ 2 Autauga, AL 01001      35985      1992 PST0351     AL   
+ 3 Autauga, AL 01001      36953      1993 PST0351     AL   
+ 4 Autauga, AL 01001      38186      1994 PST0351     AL   
+ 5 Autauga, AL 01001      39112      1995 PST0351     AL   
+ 6 Autauga, AL 01001      40207      1996 PST0351     AL   
+ 7 Autauga, AL 01001      41238      1997 PST0351     AL   
+ 8 Autauga, AL 01001      42106      1998 PST0351     AL   
+ 9 Autauga, AL 01001      42963      1999 PST0351     AL   
+10 Autauga, AL 01001      43671      2000 PST0402     AL   
+# ℹ 31,385 more rows
+
+$`Non-County Data`
+# A tibble: 520 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  252980941      1991 PST0351     Error   
+ 2 UNITED STATES 00000  256514224      1992 PST0351     Error   
+ 3 UNITED STATES 00000  259918588      1993 PST0351     Error   
+ 4 UNITED STATES 00000  263125821      1994 PST0351     Error   
+ 5 UNITED STATES 00000  266278393      1995 PST0351     Error   
+ 6 UNITED STATES 00000  269394284      1996 PST0351     Error   
+ 7 UNITED STATES 00000  272646925      1997 PST0351     Error   
+ 8 UNITED STATES 00000  275854104      1998 PST0351     Error   
+ 9 UNITED STATES 00000  279040168      1999 PST0351     Error   
+10 UNITED STATES 00000  281424602      2000 PST0402     Error   
+# ℹ 510 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pst_d <span class="ot">&lt;-</span> <span class="fu">wrap_all</span>(<span class="st">"https://www4.stat.ncsu.edu/~online/datasets/PST01d.csv"</span>, <span class="at">values =</span> <span class="st">"Population"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>pst_d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 31,420 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      43872      2000 PST0452     AL   
+ 2 Autauga, AL 01001      44434      2001 PST0452     AL   
+ 3 Autauga, AL 01001      45157      2002 PST0452     AL   
+ 4 Autauga, AL 01001      45762      2003 PST0452     AL   
+ 5 Autauga, AL 01001      46933      2004 PST0452     AL   
+ 6 Autauga, AL 01001      47870      2005 PST0452     AL   
+ 7 Autauga, AL 01001      49105      2006 PST0452     AL   
+ 8 Autauga, AL 01001      49834      2007 PST0452     AL   
+ 9 Autauga, AL 01001      50354      2008 PST0452     AL   
+10 Autauga, AL 01001      50756      2009 PST0452     AL   
+# ℹ 31,410 more rows
+
+$`Non-County Data`
+# A tibble: 520 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  282171957      2000 PST0452     Error   
+ 2 UNITED STATES 00000  285081556      2001 PST0452     Error   
+ 3 UNITED STATES 00000  287803914      2002 PST0452     Error   
+ 4 UNITED STATES 00000  290326418      2003 PST0452     Error   
+ 5 UNITED STATES 00000  293045739      2004 PST0452     Error   
+ 6 UNITED STATES 00000  295753151      2005 PST0452     Error   
+ 7 UNITED STATES 00000  298593212      2006 PST0452     Error   
+ 8 UNITED STATES 00000  301579895      2007 PST0452     Error   
+ 9 UNITED STATES 00000  304374846      2008 PST0452     Error   
+10 UNITED STATES 00000  307006550      2009 PST0452     Error   
+# ℹ 510 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Run data combining function three times to put into one object. Print out each.</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># A and B</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>a_and_b <span class="ot">&lt;-</span> <span class="fu">combine_both</span>(pst_a, pst_b)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>a_and_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 62,714 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      25508      1971 PST0151     AL   
+ 2 Autauga, AL 01001      27166      1972 PST0151     AL   
+ 3 Autauga, AL 01001      28463      1973 PST0151     AL   
+ 4 Autauga, AL 01001      29266      1974 PST0151     AL   
+ 5 Autauga, AL 01001      29718      1975 PST0151     AL   
+ 6 Autauga, AL 01001      29896      1976 PST0151     AL   
+ 7 Autauga, AL 01001      30462      1977 PST0151     AL   
+ 8 Autauga, AL 01001      30882      1978 PST0151     AL   
+ 9 Autauga, AL 01001      32055      1979 PST0151     AL   
+10 Autauga, AL 01001      31985      1981 PST0251     AL   
+# ℹ 62,704 more rows
+
+$`Non-County Data`
+# A tibble: 1,040 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  206827028      1971 PST0151     Error   
+ 2 UNITED STATES 00000  209283904      1972 PST0151     Error   
+ 3 UNITED STATES 00000  211357490      1973 PST0151     Error   
+ 4 UNITED STATES 00000  213341552      1974 PST0151     Error   
+ 5 UNITED STATES 00000  215465246      1975 PST0151     Error   
+ 6 UNITED STATES 00000  217562728      1976 PST0151     Error   
+ 7 UNITED STATES 00000  219759860      1977 PST0151     Error   
+ 8 UNITED STATES 00000  222095080      1978 PST0151     Error   
+ 9 UNITED STATES 00000  224567234      1979 PST0151     Error   
+10 UNITED STATES 00000  229466391      1981 PST0251     Error   
+# ℹ 1,030 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A, B, and C</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>a_b_c<span class="ot">&lt;-</span> <span class="fu">combine_both</span>(a_and_b, pst_c)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>a_b_c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 94,109 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      25508      1971 PST0151     AL   
+ 2 Autauga, AL 01001      27166      1972 PST0151     AL   
+ 3 Autauga, AL 01001      28463      1973 PST0151     AL   
+ 4 Autauga, AL 01001      29266      1974 PST0151     AL   
+ 5 Autauga, AL 01001      29718      1975 PST0151     AL   
+ 6 Autauga, AL 01001      29896      1976 PST0151     AL   
+ 7 Autauga, AL 01001      30462      1977 PST0151     AL   
+ 8 Autauga, AL 01001      30882      1978 PST0151     AL   
+ 9 Autauga, AL 01001      32055      1979 PST0151     AL   
+10 Autauga, AL 01001      31985      1981 PST0251     AL   
+# ℹ 94,099 more rows
+
+$`Non-County Data`
+# A tibble: 1,560 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  206827028      1971 PST0151     Error   
+ 2 UNITED STATES 00000  209283904      1972 PST0151     Error   
+ 3 UNITED STATES 00000  211357490      1973 PST0151     Error   
+ 4 UNITED STATES 00000  213341552      1974 PST0151     Error   
+ 5 UNITED STATES 00000  215465246      1975 PST0151     Error   
+ 6 UNITED STATES 00000  217562728      1976 PST0151     Error   
+ 7 UNITED STATES 00000  219759860      1977 PST0151     Error   
+ 8 UNITED STATES 00000  222095080      1978 PST0151     Error   
+ 9 UNITED STATES 00000  224567234      1979 PST0151     Error   
+10 UNITED STATES 00000  229466391      1981 PST0251     Error   
+# ℹ 1,550 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#All</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>all_combo <span class="ot">&lt;-</span> <span class="fu">combine_both</span>(a_b_c, pst_d)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>all_combo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`County Data`
+# A tibble: 125,529 × 6
+   area_name   STCOU Population Year_Date Measurement State
+   &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1 Autauga, AL 01001      25508      1971 PST0151     AL   
+ 2 Autauga, AL 01001      27166      1972 PST0151     AL   
+ 3 Autauga, AL 01001      28463      1973 PST0151     AL   
+ 4 Autauga, AL 01001      29266      1974 PST0151     AL   
+ 5 Autauga, AL 01001      29718      1975 PST0151     AL   
+ 6 Autauga, AL 01001      29896      1976 PST0151     AL   
+ 7 Autauga, AL 01001      30462      1977 PST0151     AL   
+ 8 Autauga, AL 01001      30882      1978 PST0151     AL   
+ 9 Autauga, AL 01001      32055      1979 PST0151     AL   
+10 Autauga, AL 01001      31985      1981 PST0251     AL   
+# ℹ 125,519 more rows
+
+$`Non-County Data`
+# A tibble: 2,080 × 6
+   area_name     STCOU Population Year_Date Measurement Division
+   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;   
+ 1 UNITED STATES 00000  206827028      1971 PST0151     Error   
+ 2 UNITED STATES 00000  209283904      1972 PST0151     Error   
+ 3 UNITED STATES 00000  211357490      1973 PST0151     Error   
+ 4 UNITED STATES 00000  213341552      1974 PST0151     Error   
+ 5 UNITED STATES 00000  215465246      1975 PST0151     Error   
+ 6 UNITED STATES 00000  217562728      1976 PST0151     Error   
+ 7 UNITED STATES 00000  219759860      1977 PST0151     Error   
+ 8 UNITED STATES 00000  222095080      1978 PST0151     Error   
+ 9 UNITED STATES 00000  224567234      1979 PST0151     Error   
+10 UNITED STATES 00000  229466391      1981 PST0251     Error   
+# ℹ 2,070 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot state data frame</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">2</span>]], <span class="at">values =</span> <span class="st">"Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-6.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot function on the county data.</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 15 CA Counties for Population</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"CA"</span>, <span class="st">"top"</span>, <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot function on the county data.</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 15 CA Counties for Population</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"CA"</span>, <span class="st">"top"</span>, <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-7.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 4 TX Counties for Population</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"TX"</span>, <span class="st">"top"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 4 TX Counties for Population</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"TX"</span>, <span class="st">"top"</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-8.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Defaults, except for values being Population (Top 5 NC Counties for Population)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Defaults, except for values being Population (Top 5 NC Counties for Population)</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-9.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 10 NY Counties for Population</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"NY"</span>, <span class="st">"top"</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Top 10 NY Counties for Population</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(all_combo[[<span class="dv">1</span>]], <span class="st">"Population"</span>, <span class="st">"NY"</span>, <span class="st">"top"</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Project1_files/figure-html/unnamed-chunk-12-10.png" class="img-fluid" width="672"></p>
 </div>
